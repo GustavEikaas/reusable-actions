@@ -1,5 +1,6 @@
 name: PNPM setup
 description: "Set up pnpm with cache"
+## todo add options as inputs
 
 runs:
   using: "composite"
