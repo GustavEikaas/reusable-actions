@@ -1,18 +1,22 @@
 name: PNPM setup
 description: "Set up pnpm with cache"
-## todo add options as inputs
+inputs:
+  pnpm-version:
+    required: false
+  node-version:
+    required: false
 
 runs:
   using: "composite"
   steps:
     - uses: pnpm/action-setup@v2.2.4
       with:
-        version: 8.0.0
+        version: ${{inputs.pnpm-version}}
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: ${{inputs.node-version}}
         cache: "pnpm"
 
     - name: Install dependencies
